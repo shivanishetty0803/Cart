@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import userService from '../../services/userService';
+import userService from '../../services/userservice/userService';
 import './css/signup.css';
 
 const SignupPage = () => {
