@@ -1,41 +1,54 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-//import { registerUser } from '../../services/userService';
-//import registerUser from '../../services/userService';
 import userService from '../../services/userService';
 import './css/signup.css';
 
 const SignupPage = () => {
-    // register: links inputs to validation logic
-    // handleSubmit: handles the click event
-    // errors: contains any validation messages
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     
-    const [status, setStatus] = useState({ message: '', isError: false });
+    // We removed 'status' because we are using 'popup' now.
+    const [popup, setPopup] = useState({ show: false, message: '', isError: false });
 
     const onSubmit = async (data) => {
-    try {
-        // Change this line right here:
-        const successMsg = await userService.registerUser(data); 
-        
-        setStatus({ message: successMsg, isError: false });
-        reset(); 
-    } catch (err) {
-        setStatus({ message: err.message, isError: true });
-    }
-};
+        try {
+            await userService.registerUser(data); 
+
+            // Trigger the Floating Pop-up (Success)
+            setPopup({ show: true, message: 'Customer registered successfully!', isError: false });
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                setPopup(prev => ({ ...prev, show: false }));
+            }, 3000);
+            
+            reset(); 
+        } catch (err) {
+            // Trigger the Floating Pop-up (Error)
+            setPopup({ 
+                show: true, 
+                message: err.response?.data?.message || 'Signup failed. Customer already registered', 
+                isError: true 
+            });
+            
+            setTimeout(() => {
+                setPopup(prev => ({ ...prev, show: false }));
+            }, 3000);
+        }
+    };
 
     return (
         <div className="signup-page">
+            {/* FLOATING POPUP - Independent of the card */}
+            {popup.show && (
+                <div className={`global-popup ${popup.isError ? 'pop-red' : 'pop-green'}`}>
+                    <span className="icon-circle">{popup.isError ? '!' : '✓'}</span>
+                    {popup.message}
+                </div>
+            )}
+
             <div className="signup-card">
                 <h2>Create Your Account</h2>
-                <p className="subtitle">Join our ShopHub community today!</p>
-
-                {status.message && (
-                    <div className={`alert ${status.isError ? 'alert-danger' : 'alert-success'}`}>
-                        {status.message}
-                    </div>
-                )}
+                <p className="subtitle">Start your journey with ShopHub.</p>
 
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className="form-item">
@@ -56,7 +69,7 @@ const SignupPage = () => {
                             {...register("email", { 
                                 required: "Email is required",
                                 pattern: { 
-                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 
+                                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.com$/, 
                                     message: "Invalid email address" 
                                 }
                             })}

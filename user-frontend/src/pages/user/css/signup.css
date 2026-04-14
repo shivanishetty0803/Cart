@@ -3,55 +3,164 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f7f6;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    font-family: 'Inter', sans-serif;
 }
 
 .signup-card {
     background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-h2 { margin-bottom: 0.5rem; color: #333; text-align: center; }
-.subtitle { text-align: center; color: #666; margin-bottom: 2rem; }
+/* Card hover effect */
+.signup-card:hover {
+    transform: translateY(-8px);
+}
 
-.form-item { margin-bottom: 1.2rem; }
-.form-item label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: #555; }
+h2 { 
+    margin-bottom: 0.5rem; 
+    color: #1e293b; 
+    text-align: left; /* Left Aligned */
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.subtitle { 
+    text-align: left; /* Left Aligned */
+    color: #64748b; 
+    margin-bottom: 2.5rem; 
+    font-size: 1rem;
+}
+
+.form-item { 
+    margin-bottom: 1.5rem; 
+    text-align: left; /* Ensures container content stays left */
+}
+
+.form-item label { 
+    display: block; 
+    margin-bottom: 0.6rem; 
+    font-weight: 600; 
+    color: #475569; 
+    font-size: 0.9rem;
+    letter-spacing: 0.025em;
+    transition: color 0.3s ease;
+}
 
 .form-item input {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
     font-size: 1rem;
-    box-sizing: border-box; /* Crucial for padding */
+    color: #1e293b;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
-.error-text { color: #d9534f; font-size: 0.85rem; margin-top: 0.3rem; display: block; }
+/* --- INTERACTIVE EFFECTS --- */
 
-.alert {
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: bold;
+/* Hover: Slight border darken and lift */
+.form-item input:hover {
+    border-color: #cbd5e1;
+    transform: translateX(4px); /* Subtle slide to the right on hover */
 }
-.alert-danger { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-.alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+
+/* Focus: Indigo glow and label color change */
+.form-item input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    background-color: #fff;
+}
+
+.form-item:focus-within label {
+    color: #6366f1;
+}
 
 .submit-btn {
     width: 100%;
-    padding: 0.9rem;
-    background-color: #007bff;
+    padding: 1rem;
+    background: #6366f1; /* Modern Indigo */
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
 }
 
-.submit-btn:hover { background-color: #0056b3; }
+.submit-btn:hover { 
+    background: #4f46e5;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.error-text { 
+    color: #ef4444; 
+    font-size: 0.8rem; 
+    margin-top: 0.5rem; 
+    font-weight: 500;
+}
+
+
+
+
+
+
+/* GLOBAL FLOATING POPUP */
+.global-popup {
+    position: fixed;
+    top: 20px; /* Distance from top of browser */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 28px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999; /* Ensures it is on top of EVERYTHING */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: slideDownPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pop-green { background-color: #10b981; } /* Emerald for success */
+.pop-red { background-color: #ef4444; }   /* Red for errors */
+
+.icon-circle {
+    background: rgba(255, 255, 255, 0.25);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* ANIMATION: Drop from top and bounce */
+@keyframes slideDownPop {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    100% {
+        top: 20px;
+        opacity: 1;
+    }
+}
