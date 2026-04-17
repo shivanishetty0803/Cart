@@ -1,0 +1,103 @@
+.profile-container {
+    display: flex;
+    justify-content:center;
+    padding: 40px;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+}
+
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin-bottom: 10px;
+}
+
+.form-section {
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.read-only {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center;    /* Centers buttons horizontally */
+    gap: 15px;              /* Adds space between the two buttons */
+    margin-top: 40px;       /* Adds space above the button group */
+    width: 100%;            /* Ensures container spans the full width */
+}
+
+.save-btn, .delete-btn {
+    width: 250px;           /* Gives buttons a consistent, fixed width */
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid  #237403;
+}
+
+.save-btn:hover {
+    background-color: #fff5f5;
+    color: #3ba71a;
+    border-color: #237403;
+}
+
+.delete-btn {
+    background-color: #dc3545 ;
+    color: white;
+    border: 1px solid #dc3545; /* Makes delete look less prominent than save */
+}
+
+.delete-btn:hover {
+    background-color: #fff5f5;
+    color: #a71d2a;
+    border-color: #a71d2a;
+}

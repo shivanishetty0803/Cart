@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import SignupPage from '../pages/user/SignupPage';
 import LoginPage from '../pages/user/LoginPage';
 import ForgotPassword from '../pages/user/ForgotPassword';
+import ProfilePage from '../pages/user/ProfilePage';
 
 const AppRoutes = () => {
     return (
@@ -15,6 +16,8 @@ const AppRoutes = () => {
             <Route path="/signup" element={<SignupPage />} />
 
             <Route path="/forgot-password" element={<ForgotPassword />} />
+
+            <Route path="/profile" element={<ProfilePage />} />
             
             {/* A placeholder for after they login */}
             <Route path="/home" element={<div>Welcome to the Dashboard!</div>} />

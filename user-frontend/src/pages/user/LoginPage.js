@@ -13,6 +13,9 @@ const LoginPage = () => {
         try {
             const successMsg = await userService.loginUser(data); 
 
+            // Inside your handleLogin function after success:
+            localStorage.setItem("userEmail", data.email);
+
             // Show Green Pop-up
             setPopup({ show: true, message: successMsg, isError: false });
             
@@ -75,6 +78,10 @@ const LoginPage = () => {
                     </div>
 
                     {/* FEATURE: Forgot Password Link */}
+                    <div className="form-options" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}>
+                         <Link to="/forgot-password" style={{ fontSize: '14px', color: '#007bff', textDecoration: 'none' }}>
+                                Forgot Password?
+                         </Link>
                     <div className="form-options">
                         <Link to="/forgot-password">Forgot Password?</Link>
                     </div>

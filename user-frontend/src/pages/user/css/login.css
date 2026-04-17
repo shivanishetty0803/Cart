@@ -1,0 +1,130 @@
+/* src/pages/user/css/login.css */
+
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+.signup-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+}
+
+h2 {
+    margin: 0 0 0.5rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.subtitle {
+    color: #666;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.form-item {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.form-item input {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-item input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Features: Forgot Password & Signup Links */
+.form-options {
+    text-align: right;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-options a {
+    font-size: 0.8rem;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #4338ca;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.switch-auth a {
+    color: #4f46e5;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Floating Popups */
+.global-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.pop-green { background-color: #10b981; }
+.pop-red { background-color: #ef4444; }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
