@@ -1,11 +1,15 @@
 import './App.css';
-import SignupPage from './pages/user/SignupPage';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
- return (
-    <div className="App">
-      <SignupPage />
-    </div>
+  return (
+    <BrowserRouter>
+      <div className="App">
+        {/*  removed <SignupPage /> and replaced it with the Router */}
+        <AppRoutes />
+      </div>
+    </BrowserRouter>
   );
 }
 

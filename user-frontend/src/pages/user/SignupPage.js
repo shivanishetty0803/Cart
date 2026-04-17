@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import userService from '../../services/userservice/userService';
 import './css/signup.css';
+import { useNavigate, Link } from 'react-router-dom'; 
 
 const SignupPage = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    const navigate = useNavigate();
     
     // We removed 'status' because we are using 'popup' now.
     const [popup, setPopup] = useState({ show: false, message: '', isError: false });
@@ -19,6 +22,7 @@ const SignupPage = () => {
             // Auto-hide after 3 seconds
             setTimeout(() => {
                 setPopup(prev => ({ ...prev, show: false }));
+                navigate('/login');
             }, 3000);
             
             reset(); 
@@ -104,6 +108,10 @@ const SignupPage = () => {
                     </div>
 
                     <button type="submit" className="submit-btn">Sign Up</button>
+
+                    <p className="switch-auth">
+                        Already have an account? <Link to="/login">Login here</Link>
+                    </p>
                 </form>
             </div>
         </div>
