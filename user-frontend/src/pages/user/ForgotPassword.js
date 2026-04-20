@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-
+ 
+ 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [otp, setOtp] = useState('');
     const [newPassword, setNewPassword] = useState('');
-    const [step, setStep] = useState(1); // 1: Email Request, 2: Reset Password
+    const [step, setStep] = useState(1);
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
+ 
+    /**
+ * Sends a request to the backend to generate and email an OTP.
+ * @param {Event} e - Form submission event
+ */
     // STEP 1: Request the OTP
     const handleSendOtp = async (e) => {
         e.preventDefault();
@@ -26,7 +30,11 @@ const ForgotPassword = () => {
             setLoading(false);
         }
     };
-
+ 
+    /**
+ * Validates the 6-digit OTP and updates the user's password in the database.
+ * @param {Event} e - Form submission event
+ */
     // STEP 2: Submit OTP and New Password
     const handleResetPassword = async (e) => {
         e.preventDefault();
@@ -41,14 +49,14 @@ const ForgotPassword = () => {
             setLoading(false);
         }
     };
-
+ 
     return (
         <div style={{ maxWidth: '400px', margin: '100px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
             <h2 style={{ textAlign: 'center' }}>{step === 1 ? "Forgot Password" : "Reset Password"}</h2>
             <p style={{ fontSize: '14px', color: '#666' }}>
                 {step === 1 ? "Enter your email to receive a 6-digit verification code." : "Enter the code and your new password."}
             </p>
-
+ 
             {step === 1 ? (
                 <form onSubmit={handleSendOtp}>
                     <input type="email" placeholder="Email Address" required value={email}
@@ -75,5 +83,5 @@ const ForgotPassword = () => {
         </div>
     );
 };
-
+ 
 export default ForgotPassword;

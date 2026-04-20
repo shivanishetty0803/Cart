@@ -3,39 +3,45 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import userService from '../../services/userservice/userService';
 import './css/login.css'; // Reusing your existing CSS for consistency
-
+ 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const [popup, setPopup] = useState({ show: false, message: '', isError: false });
-
+ 
+    /**
+ * Authenticates user credentials and manages login success/failure pop-ups.
+ * Stores the user's email in localStorage for session persistence.
+ * @param {Object} data - Contains email and password from the form
+ */
+ 
     const onSubmit = async (data) => {
         try {
-            const successMsg = await userService.loginUser(data); 
-
+            const successMsg = await userService.loginUser(data);
+ 
             // Inside your handleLogin function after success:
             localStorage.setItem("userEmail", data.email);
-
+ 
             // Show Green Pop-up
             setPopup({ show: true, message: successMsg, isError: false });
-            
+           
             // Redirect to home/dashboard after 2 seconds
             setTimeout(() => {
                 setPopup(prev => ({ ...prev, show: false }));
-                navigate('/home'); 
+                navigate('/home');
             }, 2000);
-
+ 
         } catch (err) {
             // Show Red Pop-up for "Invalid Credentials" or "User not found"
             const errorMsg = err.response?.data || "Login failed. Please try again.";
             setPopup({ show: true, message: errorMsg, isError: true });
-            
+           
             setTimeout(() => {
                 setPopup(prev => ({ ...prev, show: false }));
             }, 3000);
         }
     };
-
+ 
     return (
         <div className="signup-page">
             {/* FLOATING POPUP */}
@@ -45,49 +51,47 @@ const LoginPage = () => {
                     {popup.message}
                 </div>
             )}
-
+ 
             <div className="signup-card">
                 <h2>Welcome Back</h2>
                 <p className="subtitle">Login to your ShopHub account.</p>
-
+ 
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <div className="form-item">
                         <label>Email Address</label>
-                        <input 
+                        <input
                             type="email"
                             placeholder="example@mail.com"
-                            {...register("email", { 
+                            {...register("email", {
                                 required: "Email is required",
-                                pattern: { 
-                                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/, 
-                                    message: "Invalid email (must end in .com)" 
+                                pattern: {
+                                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/,
+                                    message: "Invalid email (must end in .com)"
                                 }
                             })}
                         />
                         {errors.email && <span className="error-text">{errors.email.message}</span>}
                     </div>
-
+ 
                     <div className="form-item">
                         <label>Password</label>
-                        <input 
+                        <input
                             type="password"
                             placeholder="Enter your password"
                             {...register("password", { required: "Password is required" })}
                         />
                         {errors.password && <span className="error-text">{errors.password.message}</span>}
                     </div>
-
+ 
                     {/* FEATURE: Forgot Password Link */}
                     <div className="form-options" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}>
                          <Link to="/forgot-password" style={{ fontSize: '14px', color: '#007bff', textDecoration: 'none' }}>
                                 Forgot Password?
                          </Link>
-                    <div className="form-options">
-                        <Link to="/forgot-password">Forgot Password?</Link>
                     </div>
-
+ 
                     <button type="submit" className="submit-btn">Login</button>
-
+ 
                     {/* FEATURE: Don't have an account? Sign Up option */}
                     <p className="switch-auth">
                         Don't have an account? <Link to="/signup">Sign Up here</Link>
@@ -97,5 +101,5 @@ const LoginPage = () => {
         </div>
     );
 };
-
+ 
 export default LoginPage;
