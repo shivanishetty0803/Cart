@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import userService from '../../services/userservice/userService';
-import './css/login.css'; // Reusing your existing CSS for consistency
- 
+import './css/login.css';
+
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
@@ -18,24 +18,20 @@ const LoginPage = () => {
     const onSubmit = async (data) => {
         try {
             const successMsg = await userService.loginUser(data);
- 
-            // Inside your handleLogin function after success:
+
             localStorage.setItem("userEmail", data.email);
- 
-            // Show Green Pop-up
+
             setPopup({ show: true, message: successMsg, isError: false });
-           
-            // Redirect to home/dashboard after 2 seconds
+
             setTimeout(() => {
                 setPopup(prev => ({ ...prev, show: false }));
                 navigate('/home');
             }, 2000);
  
         } catch (err) {
-            // Show Red Pop-up for "Invalid Credentials" or "User not found"
             const errorMsg = err.response?.data || "Login failed. Please try again.";
             setPopup({ show: true, message: errorMsg, isError: true });
-           
+
             setTimeout(() => {
                 setPopup(prev => ({ ...prev, show: false }));
             }, 3000);
@@ -44,10 +40,13 @@ const LoginPage = () => {
  
     return (
         <div className="signup-page">
+
             {/* FLOATING POPUP */}
             {popup.show && (
                 <div className={`global-popup ${popup.isError ? 'pop-red' : 'pop-green'}`}>
-                    <span className="icon-circle">{popup.isError ? '!' : '✓'}</span>
+                    <span className="icon-circle">
+                        {popup.isError ? '!' : '✓'}
+                    </span>
                     {popup.message}
                 </div>
             )}
@@ -57,6 +56,7 @@ const LoginPage = () => {
                 <p className="subtitle">Login to your ShopHub account.</p>
  
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
+
                     <div className="form-item">
                         <label>Email Address</label>
                         <input
@@ -70,7 +70,9 @@ const LoginPage = () => {
                                 }
                             })}
                         />
-                        {errors.email && <span className="error-text">{errors.email.message}</span>}
+                        {errors.email && (
+                            <span className="error-text">{errors.email.message}</span>
+                        )}
                     </div>
  
                     <div className="form-item">
@@ -78,28 +80,45 @@ const LoginPage = () => {
                         <input
                             type="password"
                             placeholder="Enter your password"
-                            {...register("password", { required: "Password is required" })}
+                            {...register("password", {
+                                required: "Password is required"
+                            })}
                         />
-                        {errors.password && <span className="error-text">{errors.password.message}</span>}
+                        {errors.password && (
+                            <span className="error-text">{errors.password.message}</span>
+                        )}
                     </div>
- 
-                    {/* FEATURE: Forgot Password Link */}
-                    <div className="form-options" style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}>
-                         <Link to="/forgot-password" style={{ fontSize: '14px', color: '#007bff', textDecoration: 'none' }}>
-                                Forgot Password?
-                         </Link>
+
+                    {/* Forgot password */}
+                    <div
+                        className="form-options"
+                        style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '15px' }}
+                    >
+                        <Link
+                            to="/forgot-password"
+                            style={{
+                                fontSize: '14px',
+                                color: '#007bff',
+                                textDecoration: 'none'
+                            }}
+                        >
+                            Forgot Password?
+                        </Link>
                     </div>
- 
-                    <button type="submit" className="submit-btn">Login</button>
- 
-                    {/* FEATURE: Don't have an account? Sign Up option */}
+
+                    <button type="submit" className="submit-btn">
+                        Login
+                    </button>
+
                     <p className="switch-auth">
-                        Don't have an account? <Link to="/signup">Sign Up here</Link>
+                        Don't have an account?{' '}
+                        <Link to="/signup">Sign Up here</Link>
                     </p>
+
                 </form>
             </div>
         </div>
     );
 };
- 
+
 export default LoginPage;

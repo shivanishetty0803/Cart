@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import SignupPage from '../pages/user/SignupPage';
 import LoginPage from '../pages/user/LoginPage';
 import ForgotPassword from '../pages/user/ForgotPassword';
+import CartPage from '../pages/cart/CartPage';
+import WishlistPage from '../pages/cart/WishlistPage';
 import ProfilePage from '../pages/user/ProfilePage';
  
  
@@ -26,6 +28,9 @@ const AppRoutes = () => {
            
             {/* A placeholder for after they login */}
             <Route path="/home" element={<div>Welcome to the Dashboard!</div>} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            
         </Routes>
     );
 };
