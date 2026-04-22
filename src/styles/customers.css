@@ -1,0 +1,95 @@
+.customer-page {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  background: #f3f4f6;
+  min-height: 100vh;
+}
+
+.customer-content {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 8px 18px;
+  border-radius: 8px;
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.search-row input,
+.search-row select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.customer-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background: #e5e7eb;
+  border-radius: 50%;
+}
+
+.status-pill {
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-pill.active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-pill.inactive {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.view-btn, .edit-btn, .deactivate-btn, .activate-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background: #f3f4f6;
+}
+
+.edit-btn {
+  background: #e5e7eb;
+}
+
+.deactivate-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.activate-btn {
+  background: #dcfce7;
+  color: #15803d;
+}

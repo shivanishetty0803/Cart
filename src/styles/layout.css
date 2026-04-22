@@ -1,0 +1,28 @@
+/* .app-layout {
+  display: flex;
+  height: 100vh;
+  background: #f5f7fb;
+}
+
+.sidebar {
+  width: 220px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.content {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+} */

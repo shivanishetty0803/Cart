@@ -1,0 +1,201 @@
+.vendor-page {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  background: #f3f4f6; /* light grey background like screenshot */
+  min-height: 100vh;
+}
+
+.vendor-content {
+  width: 100%;
+  max-width: 1100px; /* EXACT screenshot width */
+  padding: 0 20px; /* horizontal padding */
+}
+/* Header */
+.section-title {
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+.vendor-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.no-pending {
+  color: #6b7280;
+  padding: 8px 0;
+}
+/* .vendor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.subtext {
+  color: #6b7280;
+}
+
+.back-btn {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.back-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.tab {
+  padding: 8px 16px;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #111827;
+  color: white;
+}
+
+/* Pending Card */
+.pending-card {
+  background: #fff7d1;
+  border-left: 4px solid #facc15;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* pending tag */
+.badge.pending {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: #fef3c7;
+  color: #d97706;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Buttons */
+.pending-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.reject-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.approve-btn {
+  background: #dcfce7;
+  color: #15803d;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.view-btn {
+  background: #f3f4f6;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Approved Vendor List */
+.vendor-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 6px 25px rgba(0,0,0,0.05);
+}
+
+.vendor-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.owner {
+  color: #6b7280;
+}
+
+.vendor-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+.label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.green-text {
+  color: #22c55e;
+}
+
+/* right side */
+.vendor-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.badge.approved {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.badge.pending {
+  background: #fef3c7;
+  color: #d97706;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.badge.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+.view-details-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  border: none;
+}

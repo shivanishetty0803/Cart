@@ -1,0 +1,66 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 480px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-email {
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.modal-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.modal-field label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.modal-field p {
+  margin: 4px 0;
+}
+
+.purchase-title {
+  margin-top: 20px;
+}
+
+.purchase-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.purchase-box {
+  flex: 1;
+  background: #f0fdf4;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}

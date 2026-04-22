@@ -1,0 +1,104 @@
+.dashboard {
+  padding: 20px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* METRIC CARDS */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.metric-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+.metric-card small {
+  color: #64748b;
+}
+
+.metric-card.blue { border-left: 4px solid #3b82f6; }
+.metric-card.green { border-left: 4px solid #22c55e; }
+.metric-card.purple { border-left: 4px solid #8b5cf6; }
+.metric-card.orange { border-left: 4px solid #f97316; }
+
+/* CHARTS */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.chart-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+
+
+
+}
+
+
+.chart-sub {
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+/* MANAGEMENT */
+.section-title {
+  margin-top: 30px;
+}
+
+.management-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.manage-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+.btn-blue {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.btn-green {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+/* PLATFORM HEALTH */
+.health-row {
+  margin-top: 30px;
+  background: #ecfdf5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.health-row span {
+  color: #16a34a;
+}
