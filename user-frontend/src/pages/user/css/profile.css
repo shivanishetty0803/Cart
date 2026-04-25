@@ -1,0 +1,175 @@
+/**
+ * Layout container for the Profile dashboard.
+ * Uses a light grey background (#f4f7f9) to contrast against the white content card.
+ */
+ 
+.profile-container {
+    display: flex;
+    justify-content:center;
+    padding: 40px;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+}
+ 
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+ 
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+ 
+ 
+/**
+ * Circular avatar styling for gender-based profile photos.
+ * Implements 'object-fit: cover' to prevent image distortion and a blue border.
+ */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin-bottom: 10px;
+}
+ 
+.form-section {
+    margin-bottom: 25px;
+}
+ 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+   
+}
+ 
+/**
+ * Layout helper for shipping address fields.
+ * Uses flexbox with a 15px gap to align multiple inputs (like City/State) horizontally.
+ */
+.input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+ 
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+ 
+ 
+/**
+ * Form field styling for non-editable data (e.g., Email, Full Name).
+ * Applies a grey background and a 'not-allowed' cursor to indicate read-only status.
+ */
+.read-only {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+ 
+.profile-actions {
+    display: flex;
+    flex-direction: column; /* Stacks buttons vertically */
+    align-items: center;    /* Centers buttons horizontally */
+    gap: 15px;              /* Adds space between the two buttons */
+    margin-top: 40px;       /* Adds space above the button group */
+    width: 100%;            /* Ensures container spans the full width */
+}
+ 
+.save-btn, .delete-btn {
+    width: 250px;           /* Gives buttons a consistent, fixed width */
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+ 
+/**
+ * Primary action button for saving changes.
+ * Features an inverse hover effect (green-to-white background) with a border-color shift.
+ */
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    border: 1px solid  #237403;
+}
+ 
+.save-btn:hover {
+    background-color: #fff5f5;
+    color: #3ba71a;
+    border-color: #237403;
+}
+ 
+ 
+/**
+ * Danger action button for account deletion.
+ * Styled with a red palette (#dc3545) to alert the user of a destructive action.
+ */
+.delete-btn {
+    background-color: #dc3545 ;
+    color: white;
+    border: 1px solid #dc3545;
+}
+ 
+.delete-btn:hover {
+    background-color: #fff5f5;
+    color: #a71d2a;
+    border-color: #a71d2a;
+}
+ 
+/* styles for the Country Dropdown in Profile */
+.phone-input-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+ 
+.country-prefix-select {
+    width: 120px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: 500;
+}
+ 
+.phone-input-row input {
+    flex: 1; /* Input takes remaining space */
+}
+ 
+/* Adjusting group spacing */
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #495057;
+}
+ 
+ 
+.country-dropdown {
+    flex: 1; /* Makes it take equal space next to Zip Code */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+ 
+.country-dropdown:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}

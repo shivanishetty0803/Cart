@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* FULL-WIDTH NAVBAR */
+.navbar-container {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  font-family: 'Inter', sans-serif;
+
+  /* IMPORTANT */
+  overflow: visible;
+}
+
+/* MAIN NAV BAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  /* Enough horizontal padding so buttons never cut */
+  padding: 10px 32px;
+
+  box-sizing: border-box;
+}
+
+/* LOGO – EXTREME LEFT */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0; /* NEVER shrink logo */
+}
+
+.navbar-brand-icon {
+  width: 24px;
+  height: 24px;
+  color: #2874f0;
+}
+
+.navbar-brand-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* SEARCH – CENTER */
+.navbar-search {
+  flex: 1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/*  RIGHT ACTIONS – MUST NOT SHRINK */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-left: auto;     /*  THIS pushes it to extreme right */
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+
+/* OPTIONAL: buttons inside actions */
+.navbar-actions button,
+.navbar-actions a {
+  white-space: nowrap;
+}
